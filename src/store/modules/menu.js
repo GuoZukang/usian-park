@@ -9,7 +9,7 @@ const mutations = {
     state.menus = [...constantRoutes, ...asyncMenus];
   },
   removeMenu(state) {
-    state.menus = [...constantRoutes];
+    state.menus = constantRoutes;
     resetRouter();
   },
 };

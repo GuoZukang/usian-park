@@ -5,6 +5,7 @@ import "nprogress/nprogress.css"; // progress bar style
 import { getToken } from "@/utils/auth"; // get token from cookie
 import getPageTitle from "@/utils/get-page-title";
 import { asyncRoutes } from "@/router/asyncRoutes";
+import { Message } from "element-ui";
 
 NProgress.configure({ showSpinner: false }); // NProgress Configuration
 

@@ -40,3 +40,21 @@ export const delRoleApi = (id) => {
     method: "DELETE",
   });
 };
+
+// 添加角色
+export const addRoleApi = (data) => {
+  return service({
+    url: "/park/sys/role",
+    method: "POST",
+    data,
+  });
+};
+
+// 修改角色
+export const editRoleApi = (data) => {
+  return service({
+    url: "/park/sys/role",
+    method: "PUT",
+    data,
+  });
+};

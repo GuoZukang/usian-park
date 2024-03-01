@@ -1,5 +1,7 @@
 <template>
-  <div>告警记录</div>
+  <div>
+    <div>告警记录</div>
+  </div>
 </template>
 <script>
 export default {

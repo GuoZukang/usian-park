@@ -24,7 +24,12 @@
             </el-tooltip>
           </div>
           <el-popover placement="bottom" trigger="click">
-            <div style="color: #000; cursor: pointer">编辑角色</div>
+            <div
+              style="color: #000; cursor: pointer"
+              @click="$router.push(`/system/role/add?id=${item.roleId}`)"
+            >
+              编辑角色
+            </div>
             <div
               style="color: red; margin-top: 10px; cursor: pointer"
               @click="delRole(item)"
