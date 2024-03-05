@@ -18,7 +18,12 @@
       </el-form-item>
     </el-form>
     <!-- 添加企业 -->
-    <el-button type="primary" size="mini" style="margin: 10px 0" @click="goAdd"
+    <el-button
+      type="primary"
+      size="mini"
+      style="margin: 10px 0"
+      @click="goAdd"
+      v-auth-btn="'park:enterprise:add_edit'"
       >添加企业</el-button
     >
     <!-- 表格 -->
@@ -59,18 +64,21 @@
                   type="text"
                   :disabled="row.renewFlag == 0"
                   @click="openRelet(row)"
+                  v-auth-btn="'park:rent:add_surrender'"
                   >续租</el-button
                 >
                 <el-button
                   type="text"
                   :disabled="row.exitFlag === 0"
                   @click="quitRent(row.id)"
+                  v-auth-btn="'park:rent:add_surrender'"
                   >退租</el-button
                 >
                 <el-button
                   type="text"
                   :disabled="row.status !== 3"
                   @click="delRent(row.id)"
+                  v-auth-btn="'park:rent:add_surrender'"
                   >删除</el-button
                 >
               </template>
@@ -84,13 +92,29 @@
       <el-table-column label="联系电话" prop="contactNumber"></el-table-column>
       <el-table-column label="操作" prop="existContractFlag">
         <template v-slot="{ row }">
-          <el-button type="text" @click="openAdd(row.id)">添加合同</el-button>
-          <el-button type="text" @click="goDetail(row.id)">查看</el-button>
-          <el-button type="text" @click="goEdit(row.id)">编辑</el-button>
+          <el-button
+            type="text"
+            @click="openAdd(row.id)"
+            v-auth-btn="'park:rent:add_surrender'"
+            >添加合同</el-button
+          >
+          <el-button
+            type="text"
+            @click="goDetail(row.id)"
+            v-auth-btn="'park:enterprise:query'"
+            >查看</el-button
+          >
+          <el-button
+            type="text"
+            @click="goEdit(row.id)"
+            v-auth-btn="'park:enterprise:add_edit'"
+            >编辑</el-button
+          >
           <el-button
             type="text"
             :disabled="row.existContractFlag == 1"
             @click="delEnterprise(row.id)"
+            v-auth-btn="'park:enterprise:remove'"
             >删除</el-button
           >
         </template>

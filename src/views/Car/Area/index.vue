@@ -1,6 +1,10 @@
 <template>
   <div>
-    <el-button size="small" type="primary" @click="dialogVisible = true"
+    <el-button
+      size="small"
+      type="primary"
+      @click="dialogVisible = true"
+      v-auth-btn="'parking:area:add_edit'"
       >添加区域</el-button
     >
     <!-- 表格 -->
@@ -24,8 +28,18 @@
       <el-table-column prop="remark" label="备注"></el-table-column>
       <el-table-column label="操作">
         <template v-slot="{ row }">
-          <el-button type="text" @click="editArea(row)">编辑</el-button>
-          <el-button type="text" @click="delArea(row.id)">删除</el-button>
+          <el-button
+            type="text"
+            @click="editArea(row)"
+            v-auth-btn="'parking:area:add_edit'"
+            >编辑</el-button
+          >
+          <el-button
+            type="text"
+            @click="delArea(row.id)"
+            v-auth-btn="'parking:area:remove'"
+            >删除</el-button
+          >
         </template>
       </el-table-column>
     </el-table>
@@ -82,7 +96,8 @@
             placeholder="请选择"
           >
             <el-option
-              v-for="item in list"
+              v-for="(item, index) in list"
+              :key="index"
               :label="item.ruleName"
               :value="item.id"
             ></el-option>

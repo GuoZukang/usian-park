@@ -27,11 +27,7 @@
       >添加楼宇</el-button
     >
     <!-- 表格 -->
-    <el-table
-      v-auth-btn="'park:building:list'"
-      :data="buildingList"
-      style="width: 100%; margin-bottom: 10px"
-    >
+    <el-table :data="buildingList" style="width: 100%; margin-bottom: 10px">
       <el-table-column type="index" label="序号"></el-table-column>
       <el-table-column prop="name" label="楼宇名称"></el-table-column>
       <el-table-column prop="floors" label="层数"></el-table-column>
@@ -55,12 +51,11 @@
           >
           <el-button
             type="text"
-            v-if="row.status == 0"
+            :disabled="row.status != 0"
             @click="delBuilding(row.id)"
             v-auth-btn="'park:building:remove'"
             >删除</el-button
           >
-          <el-button type="text" v-else disabled>删除</el-button>
         </template>
       </el-table-column>
     </el-table>

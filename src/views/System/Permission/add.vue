@@ -218,7 +218,6 @@ export default {
       this.ruleForm = { perms, remark, roleId, roleName };
       this.$refs.tree.forEach((tree, index) => {
         tree.setCheckedKeys(this.ruleForm.perms[index]);
-        console.log(tree.setCheckedKeys(this.ruleForm.perms[index]));
       });
     },
   },

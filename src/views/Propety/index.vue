@@ -23,7 +23,13 @@
         <el-button type="primary" @click="search">查询</el-button>
       </el-form-item>
     </el-form>
-    <el-button size="mini" type="primary" @click="add">添加账单</el-button>
+    <el-button
+      size="mini"
+      type="primary"
+      @click="add"
+      v-auth-btn="'park:propertyFee:add'"
+      >添加账单</el-button
+    >
     <!-- 表格 -->
     <el-table
       ref="singleTable"
@@ -57,8 +63,18 @@
       <el-table-column property="createTime" label="缴费时间"></el-table-column>
       <el-table-column label="操作">
         <template v-slot="{ row }">
-          <el-button type="text" @click="detailCost(row.id)">查看</el-button>
-          <el-button type="text" @click="delCost(row.id)">删除</el-button>
+          <el-button
+            type="text"
+            @click="detailCost(row.id)"
+            v-auth-btn="'park:propertyFee:query'"
+            >查看</el-button
+          >
+          <el-button
+            type="text"
+            @click="delCost(row.id)"
+            v-auth-btn="'park:propertyFee:remove'"
+            >删除</el-button
+          >
         </template>
       </el-table-column>
     </el-table>
@@ -99,7 +115,8 @@
             placeholder="请选择用户"
           >
             <el-option
-              v-for="item in allEnterprise"
+              v-for="(item, index) in allEnterprise"
+              :key="index"
               :label="item.name"
               :value="item.id"
             ></el-option>
@@ -112,7 +129,8 @@
             placeholder="请选择租赁楼宇"
           >
             <el-option
-              v-for="item in allBuilding"
+              v-for="(item, index) in allBuilding"
+              :key="index"
               :label="item.name"
               :value="item.id"
             ></el-option>
