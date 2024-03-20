@@ -5,7 +5,7 @@ import { Message } from "element-ui";
 import router from "@/router";
 
 const service = axios.create({
-  baseURL: process.env.VUE_APP_BASE_URL,
+  baseURL: process.env.VUE_APP_BASE_API,
   timeout: 100000,
 });
 // 添加请求拦截器
