@@ -9,7 +9,7 @@
     <breadcrumb class="breadcrumb-container" />
 
     <div class="right-menu">
-      <div class="btn" @click.stop="aaa">可视化大屏</div>
+      <div class="btn" @click="$router.push('/big-screen')">可视化大屏</div>
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
           <div class="name">{{ name }}</div>

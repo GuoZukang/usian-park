@@ -85,7 +85,7 @@ router.beforeEach(async (to, from, next) => {
           // console.log("newRoutes=>", newRoutes);
           router.addRoutes([
             ...newRoutes,
-            { path: "*", redirect: "/404", hidden: true },
+            // { path: "*", redirect: "/404", hidden: true },
           ]);
           store.commit("menu/setMenus", newRoutes);
           next(to.fullPath);

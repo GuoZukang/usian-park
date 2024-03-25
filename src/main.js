@@ -6,6 +6,8 @@ import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 // import locale from 'element-ui/lib/locale/lang/en' // lang i18n
 import locale from "element-ui/lib/locale/lang/zh-CN"; // lang i18n
+// 启动微前端配置
+import "./registerMicroApp";
 
 import "@/styles/index.scss"; // global css
 
